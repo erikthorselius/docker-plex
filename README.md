@@ -15,14 +15,14 @@ You can also obtain it via:
 ```
 docker pull timhaak/plex
 #for plexpass:
-docker pull timhaak/plex:plexpass
+docker pull timhaak/plex-plexpass
 ```
 
 ---
 Instructions to run:
 
 ```
-docker run -d -h *your_host_name* -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400  plex #or plex:plexpass
+docker run -d -h *your_host_name* -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400  plex #or plex-plexpass
 ```
 or for auto detection to work add --net="host". Though be aware this more insecure and not best practice with docker images.
 
@@ -31,7 +31,7 @@ The only reason for doing it is to allow Avahi to work (As it uses broadcasts wi
 See https://docs.docker.com/articles/networking/#how-docker-networks-a-container
 
 ```
-docker run -d --net="host" -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400  plex #or plex:plexpass
+docker run -d --net="host" -v /*your_config_location*:/config -v /*your_videos_location*:/data -p 32400:32400  plex #or plex-plexpass
 ```
 
 The first time it runs, it will initialize the config directory and terminate. (This most likely won't happen if you've used the --net="host")
