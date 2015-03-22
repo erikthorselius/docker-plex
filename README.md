@@ -5,7 +5,7 @@ This is a Dockerfile to set up (https://plex.tv/ "Plex Media Server") - (https:/
 Build from docker file
 
 ```
-git clone git@github.com:timhaak/docker-plex.git
+git clone git@github.com:vvhof/docker-plex.git
 cd docker-plex #For plexpass: cd docker-plex/plexpass
 docker build -t plex .
 ```
@@ -15,7 +15,7 @@ You can also obtain it via:
 ```
 docker pull timhaak/plex
 #for plexpass:
-docker pull timhaak/plex-plexpass
+docker pull vvhof/plex-plexpass
 ```
 
 ---
