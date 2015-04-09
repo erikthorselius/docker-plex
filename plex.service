@@ -1,0 +1,19 @@
+[Unit]
+Description=Run plex
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+RestartSec=10s
+ExecStartPre=-/usr/bin/docker kill plex
+ExecStartPre=-/usr/bin/docker rm plex
+ExecStartPre=/usr/bin/docker pull regius/docker-plex
+ExecStart=/usr/bin/docker run --net="host" -v /home/plex:/config \
+	-v /home/couchpotato/Movies:/data/Movies \
+	-v /home/sonarr/media:/data/Series \
+	-p 32400:32400 --rm --name plex regius/docker-plex
+ExecStop=/usr/bin/docker stop plex
+
+[Install]
+WantedBy=local.target
