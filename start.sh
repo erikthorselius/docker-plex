@@ -2,11 +2,10 @@
 GROUP=plextmp
 
 mkdir -p /config/logs/supervisor
-chown -R plex: /config
 
 touch /supervisord.log
 touch /supervisord.pid
-chown plex: /supervisord.log /supervisord.pid
+#chown plex: /supervisord.log /supervisord.pid
 
 TARGET_GID=$(stat -c "%g" /data)
 EXISTS=$(cat /etc/group | grep ${TARGET_GID} | wc -l)
@@ -23,6 +22,7 @@ usermod -a -G ${GROUP} plex
 
 # Will change all files in directory to be readable by group
 if [ "${CHANGE_DIR_RIGHTS}" == true ]; then
+  chown -R plex: /config
   chgrp -R ${GROUP} /data
   chmod -R g+rX /data
 fi
