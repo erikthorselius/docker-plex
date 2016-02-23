@@ -1,7 +1,7 @@
 FROM timhaak/base:latest
 MAINTAINER tim@haak.co.uk
 
-RUN curl -o /pms.deb https://downloads.plex.tv/plex-media-server/0.9.14.6.1620-e0b7243/plexmediaserver_0.9.14.6.1620-e0b7243_amd64.deb && dpkg -i /pms.deb
+RUN curl -o /pms.deb https://downloads.plex.tv/plex-media-server/0.9.15.5.1712-ba5070a/plexmediaserver_0.9.15.5.1712-ba5070a_amd64.deb && dpkg -i /pms.deb
 VOLUME ["/config","/data"]
 
 ADD ./start.sh /start.sh
